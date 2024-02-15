@@ -30,7 +30,11 @@
             <th scope="row"><a href="{{ route('admin.projects.show', $project->id) }}">{{ $project->id }}</a></th>
             <td><a href="{{ route('admin.projects.show', $project->id) }}">{{ $project->project_name }}</a></td>
             <td>{{ $project->type->type }}</td>
-            <td>{{ $project->technologies }}</td>
+            <td>
+             @foreach ($project->technologies->pluck('technology_name') as $technology)
+             {{ $prova = $technology . '' }}
+            @endforeach
+            </td>
             <td>{{ $project->framework_used }}</td>
             <td>{{ $project->status ? 'Completato' : 'In corso' }}</td>
             <td>{{ $project->repository_url }}</td>
