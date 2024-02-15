@@ -32,7 +32,11 @@
           </tr>
           <tr>
             <th scope="row">Tecnologie Utilizzate</th>
-            <td>{{ $project->technologies }}</td>
+            <td>
+              @foreach ($project->technologies->pluck('technology_name') as $technology)
+             {{ $prova = $technology . '' }}
+            @endforeach
+            </td>
           </tr>
           <tr>
             <th scope="row">Framework utilizzati</th>
