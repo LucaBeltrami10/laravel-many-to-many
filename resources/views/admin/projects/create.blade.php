@@ -26,18 +26,17 @@
             <input type="text" class="form-control" id="description" name="description">
         </div>
         <div class="mb-3">
-            <label for="technologies" class="form-label">Tecnologie Utilizzate</label>
-            <input type="text" class="form-control" id="technologies"  name="technologies">
+            @foreach ($technologies as $technology)
+            <label for="technologies{{ $technology->id }}" class="form-label">{{ $technology->technology_name }}</label>
+            <input type="checkbox" class="form-check-control" id="technologies{{ $technology->id }}" value="{{ $technology->id }}"  name="technologies[]"
+            {{-- {{ in_array( $technology->id, old('technologies', $projects->technologies->pluk('id')->toArray())) ? 'checked'  : '' }} --}}
+            >
+            @endforeach
         </div>
         <div class="mb-3">
             <label for="framework_used" class="form-label">Frameword utilizzati</label>
             <input type="text" class="form-control" id="framework_used" name="framework_used">
         </div>
-        {{-- <div class="mb-3">
-            <label class="form-label" for="status" >Status</label>
-            <input type="text" class="form-control" id="status" name="status">
-            
-          </div> --}}
         <div class="mb-3">
             <label for="status" class="form-check-label">Status</label>
             <input type="checkbox" name="status" id="status" class="form-check-inline">
