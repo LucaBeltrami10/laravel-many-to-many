@@ -18,7 +18,6 @@ class ProjectSeeder extends Seeder
                 'type_id' => '1',
                 'project_name' => 'htmlcss-hello',
                 'description' => 'introduzione HTML',
-                'technologies' => '',
                 'framework_used' => null,
                 'status' => 1,
                 'repository_url' => 'https://github.com/LucaBeltrami10/htmlcss-hello.git',
@@ -27,7 +26,6 @@ class ProjectSeeder extends Seeder
                 'type_id' => '2',
                 'project_name' => 'html-london-trip ',
                 'description' => 'introduzione HTML',
-                'technologies' => '',
                 'framework_used' => null,
                 'status' => 1,
                 'repository_url' => 'https://github.com/LucaBeltrami10/html-london-trip.git',
@@ -36,7 +34,6 @@ class ProjectSeeder extends Seeder
                 'type_id' => '3',
                 'project_name' => 'html-css-booleaner',
                 'description' => 'introduzione HTML',
-                'technologies' => '',
                 'framework_used' => null,
                 'status' => 1,
                 'repository_url' => 'https://github.com/LucaBeltrami10/html-css-booleaner.git',
@@ -49,7 +46,6 @@ class ProjectSeeder extends Seeder
             $newProject->project_name = $value['project_name'];
             $newProject->type_id = $value['type_id'];
             $newProject->description = $value['description'];
-            $newProject->technologies = $value['technologies'];
             $newProject->framework_used = $value['framework_used'];
             $newProject->status = $value['status'];
             $newProject->repository_url = $value['repository_url'];

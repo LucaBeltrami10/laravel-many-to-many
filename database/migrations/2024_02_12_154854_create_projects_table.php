@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('project_name', 50);
             $table->text('description');
-            $table->string('technologies', 150);
             $table->string('framework_used', 150)->nullable();
             $table->boolean('status');
             $table->string('repository_url');
