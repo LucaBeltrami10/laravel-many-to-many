@@ -15,7 +15,7 @@ class Project extends Model
         'project_name',
         'type_id',
         'description',
-        'language_used',
+        'technologies',
         'framework_used',
         'status',
         'repository_url',

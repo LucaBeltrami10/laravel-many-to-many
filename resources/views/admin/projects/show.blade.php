@@ -31,8 +31,8 @@
             <td>{{ $project->type->type }}</td>
           </tr>
           <tr>
-            <th scope="row">Linguaggi utilizzati</th>
-            <td>{{ $project->language_used }}</td>
+            <th scope="row">Tecnologie Utilizzate</th>
+            <td>{{ $project->technologies }}</td>
           </tr>
           <tr>
             <th scope="row">Framework utilizzati</th>

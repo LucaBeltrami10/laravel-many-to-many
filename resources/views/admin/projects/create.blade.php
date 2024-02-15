@@ -26,8 +26,8 @@
             <input type="text" class="form-control" id="description" name="description">
         </div>
         <div class="mb-3">
-            <label for="language_used-name" class="form-label">Linguaggi utilizzati</label>
-            <input type="text" class="form-control" id="language_used"  name="language_used">
+            <label for="technologies" class="form-label">Tecnologie Utilizzate</label>
+            <input type="text" class="form-control" id="technologies"  name="technologies">
         </div>
         <div class="mb-3">
             <label for="framework_used" class="form-label">Frameword utilizzati</label>

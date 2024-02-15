@@ -28,7 +28,7 @@
           <tr>
             <th scope="row"><a href="{{ route('admin.projects.show', $project->id) }}">{{ $project->id }}</a></th>
             <td><a href="{{ route('admin.projects.show', $project->id) }}">{{ $project->project_name }}</a></td>
-            <td>{{ $project->language_used }}</td>
+            <td>{{ $project->technologies }}</td>
             <td>{{ $project->framework_used }}</td>
             <td>{{ $project->status }}</td>
             <td>{{ $project->repository_url }}</td>

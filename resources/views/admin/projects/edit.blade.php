@@ -27,8 +27,8 @@
             <input type="text" class="form-control" id="description" name="description" value="{{ old('project_name', $project->description) }}">
         </div>
         <div class="mb-3">
-            <label for="language_used-name" class="form-label">Linguaggi utilizzati</label>
-            <input type="text" class="form-control" id="language_used"  name="language_used" value="{{ old('project_name', $project->language_used) }}">
+            <label for="technologies-name" class="form-label">Tecnologie utilizzate</label>
+            <input type="text" class="form-control" id="technologies"  name="technologies" value="{{ old('project_name', $project->technologies) }}">
         </div>
         <div class="mb-3">
             <label for="framework_used" class="form-label">Frameword utilizzati</label>
