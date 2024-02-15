@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 
 class ProjectController extends Controller
@@ -24,8 +25,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $types = Type::all();;
-        return view('admin.projects.create', compact('types'));
+        $types = Type::all();
+        $technologies = Technology::all();
+        $projects = Project::all();
+        return view('admin.projects.create', compact('types'), compact('technologies'), compact('projects'));
     }
 
     /**
@@ -34,8 +37,11 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        /* dd($data); */
         $data['status'] = isset($data['status']);
         $project = Project::create($data);
+
+        $project->technologies()->sync($data['technologies']);
 
         return redirect()->route('admin.projects.show', $project->id);
     }
