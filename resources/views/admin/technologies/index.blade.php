@@ -48,7 +48,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                      <form action="" method="POST">
+                      <form action="{{ route('admin.technologies.destroy', $technology->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
 
