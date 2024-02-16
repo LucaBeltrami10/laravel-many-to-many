@@ -6,7 +6,7 @@
 
 <div class="container">
   <div class="w-100 d-flex justify-content-end">
-    <a href="">
+    <a href="{{ route('admin.technologies.create') }}">
       <button type="button" class="btn btn-primary">Aggiungi</button>
     </a>
 </div>
