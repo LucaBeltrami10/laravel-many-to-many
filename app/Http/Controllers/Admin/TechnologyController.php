@@ -40,9 +40,15 @@ class TechnologyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Technology $technology, Project $project)
     {
-        //
+
+        $technologyName = $technology->technology_name;
+        $projects = Project::all();
+        /* dd($projects['0']->technologies->pluck('technology_name')); */
+
+
+        return view('admin.technologies.show', compact('projects', 'technologyName'));
     }
 
     /**
@@ -68,4 +74,10 @@ class TechnologyController extends Controller
     {
         //
     }
+
+    /* public function Prova(){
+        if (in_array($technologyName, $project->technologies->pluck('technology_name'))) {
+            return echo'ciao'
+          }
+    } */
 }
