@@ -23,12 +23,12 @@ class ProjectController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Project $project)
     {
         $types = Type::all();
         $technologies = Technology::all();
-        $projects = Project::all();
-        return view('admin.projects.create', compact('types'), compact('technologies'), compact('projects'));
+
+        return view('admin.projects.create', compact('types'), compact('technologies'), compact('project'));
     }
 
     /**
