@@ -30,7 +30,7 @@
               <a href="{{ route('admin.technologies.show', $technology->id) }}">
                 <button type="button" class="btn btn-dark">Progetti {{ $technology->technology_name  }}</button>
               </a>
-              <a href="">
+              <a href="{{ route('admin.technologies.edit', $technology->id) }}">
                 <button type="button" class="btn btn-success my-1">Modifica</button>
               </a>
               <!-- Button trigger modal -->
