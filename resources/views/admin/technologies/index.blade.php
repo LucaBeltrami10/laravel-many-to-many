@@ -27,7 +27,7 @@
             <td>{{ $technology->description }}</td>
             <td>
               
-              <a href="">
+              <a href="{{ route('admin.technologies.show', $technology->id) }}">
                 <button type="button" class="btn btn-dark">Progetti {{ $technology->technology_name  }}</button>
               </a>
               <a href="">
