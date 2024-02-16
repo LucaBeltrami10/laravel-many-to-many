@@ -27,8 +27,13 @@
             <input type="text" class="form-control" id="description" name="description" value="{{ old('project_name', $project->description) }}">
         </div>
         <div class="mb-3">
-            <label for="technologies-name" class="form-label">Tecnologie utilizzate</label>
-            <input type="text" class="form-control" id="technologies"  name="technologies" value="{{ old('project_name', $project->technologies) }}">
+            @foreach ($technologies as $technology)
+            <label for="technologies{{ $technology->id }}" class="form-label">{{ $technology->technology_name }}</label>
+            <input type="checkbox" class="form-check-control" id="technologies{{ $technology->id }}" value="{{ $technology->id }}"  name="technologies[]"
+            {{-- {{ $technology->id, old('technologies') ? 'checked'  : ''}} --}}
+            {{ in_array( $technology->id, old('technologies', $project->technologies->pluck('id')->toArray())) ? 'checked'  : '' }}
+            >
+            @endforeach
         </div>
         <div class="mb-3">
             <label for="framework_used" class="form-label">Frameword utilizzati</label>
