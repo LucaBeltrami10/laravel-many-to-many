@@ -35,4 +35,5 @@ Route::middleware(['auth', 'verified'])
         Route::get('/dashboard', [DashboardController::class, 'index']);
         Route::get('projects/deleted', [ProjectController::class, 'deletedIndex'])->name('projects.deleted');
         Route::resource('/projects', ProjectController::class);
+        Route::resource('/technologies', ProjectController::class);
     });
