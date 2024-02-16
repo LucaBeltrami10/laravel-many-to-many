@@ -48,7 +48,6 @@ class TechnologyController extends Controller
 
         $technologyName = $technology->technology_name;
         $projects = Project::all();
-        /* dd($projects['0']->technologies->pluck('technology_name')); */
 
 
         return view('admin.technologies.show', compact('projects', 'technologyName'));
@@ -57,17 +56,21 @@ class TechnologyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Technology $technology)
     {
-        //
+
+        return view('admin.technologies.edit', compact('technology'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Technology $technology)
     {
-        //
+        $data = $request->all();
+        $technology->update($data);
+
+        return redirect()->route('admin.technologies.index');
     }
 
     /**
@@ -77,10 +80,4 @@ class TechnologyController extends Controller
     {
         //
     }
-
-    /* public function Prova(){
-        if (in_array($technologyName, $project->technologies->pluck('technology_name'))) {
-            return echo'ciao'
-          }
-    } */
 }
