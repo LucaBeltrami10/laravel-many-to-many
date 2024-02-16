@@ -29,7 +29,8 @@
             @foreach ($technologies as $technology)
             <label for="technologies{{ $technology->id }}" class="form-label">{{ $technology->technology_name }}</label>
             <input type="checkbox" class="form-check-control" id="technologies{{ $technology->id }}" value="{{ $technology->id }}"  name="technologies[]"
-            {{-- {{ in_array( $technology->id, old('technologies', $projects->technologies->pluk('id')->toArray())) ? 'checked'  : '' }} --}}
+            {{ $technology->id, old('technologies') ? 'checked'  : ''}}
+           {{--  {{ in_array( $technology->id, old('technologies', $project['id']->technologies->pluk('id')->toArray())) ? 'checked'  : '' }} --}}
             >
             @endforeach
         </div>
