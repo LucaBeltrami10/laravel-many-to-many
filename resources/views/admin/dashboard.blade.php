@@ -12,7 +12,7 @@
     <a href="{{ route('admin.projects.deleted') }}">
         <button type="button" class="btn btn-dark">Eliminati di Recente</button>
     </a>
-    <a href="">
+    <a href="{{ route('admin.technologies.index') }}">
         <button type="button" class="btn btn-dark">Technologies</button>
     </a>
     <a href="">
