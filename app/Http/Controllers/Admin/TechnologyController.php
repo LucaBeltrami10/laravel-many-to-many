@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Technology;
+use App\Models\ProjectTechnology;
 use App\Models\Type;
 
 
@@ -43,11 +44,19 @@ class TechnologyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Technology $technology, Project $project)
+    public function show(Technology $technology, ProjectTechnology $projectTechnology)
     {
 
         $technologyName = $technology->technology_name;
-        $projects = Project::all();
+
+        $projectsTechnologiesInfo = ProjectTechnology::where('technology_id', $technology->id)->get();
+        $projectsId = [];
+
+        foreach ($projectsTechnologiesInfo as $projectId) {
+            array_push($projectsId, $projectId->project_id);
+        };
+
+        $projects = Project::whereIn('id', $projectsId)->get();
 
 
         return view('admin.technologies.show', compact('projects', 'technologyName'));
