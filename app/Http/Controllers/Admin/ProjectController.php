@@ -10,6 +10,17 @@ use App\Models\Type;
 
 class ProjectController extends Controller
 {
+
+    private $rules = [
+        'project_name' => ['required', 'min:3', 'max:255', 'string'],
+        'type_id' => ['exists:types,id'],
+        'description' => ['min:10', 'required', 'max:600'],
+        'framework_used' => ['string', 'nullable'],
+        'technologies' => ['array'],
+        'repository_url' => ['url:http,https,github'],
+
+    ];
+
     /**
      * Display a listing of the resource.
      */
@@ -36,9 +47,11 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        /* dd($data); */
+        $data = $request->validate($this->rules);
+
         $data['status'] = isset($data['status']);
+        $data['technologies'] = isset($data['technologies']) ? $data['technologies'] : [];
+        /* dd($data); */
         $project = Project::create($data);
 
         $project->technologies()->sync($data['technologies']);
@@ -70,8 +83,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        $data = $request->all();
+        $data = $request->validate($this->rules);
         $data['status'] = isset($data['status']);
+        $data['technologies'] = isset($data['technologies']) ? $data['technologies'] : [];
         $project->update($data);
         $project->technologies()->sync($data['technologies']);
 
