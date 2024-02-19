@@ -5,6 +5,15 @@
 @section('content')
 
 <div class="container">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('admin.projects.update', $project) }}" method="post">
         @csrf
         @method('PUT')
@@ -27,6 +36,7 @@
             <input type="text" class="form-control" id="description" name="description" value="{{ old('project_name', $project->description) }}">
         </div>
         <div class="mb-3">
+            <label for="language_used" class="form-label d-block">Linguaggio utilizzato</label>
             @foreach ($technologies as $technology)
             <label for="technologies{{ $technology->id }}" class="form-label">{{ $technology->technology_name }}</label>
             <input type="checkbox" class="form-check-control" id="technologies{{ $technology->id }}" value="{{ $technology->id }}"  name="technologies[]"

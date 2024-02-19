@@ -5,12 +5,21 @@
 @section('content')
 
 <div class="container">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('admin.projects.store') }}" method="post">
         @csrf
 
         <div class="mb-3">
           <label for="project_name" class="form-label">Nome Progetto</label>
-          <input type="text" class="form-control" id="project_name" name="project_name">
+          <input type="text" class="form-control" id="project_name" name="project_name" value="{{ old('project_name') }}">
         </div>
         <div class="mb-3">
             <label for="type_id" class="form-label">Tecnologia</label>
@@ -23,9 +32,10 @@
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Descrizione progetto</label>
-            <input type="text" class="form-control" id="description" name="description">
+            <input type="text" class="form-control" id="description" name="description" value="{{ old('description') }}">
         </div>
         <div class="mb-3">
+            <label for="language_used" class="form-label d-block">Linguaggio utilizzato</label>
             @foreach ($technologies as $technology)
             <label for="technologies{{ $technology->id }}" class="form-label">{{ $technology->technology_name }}</label>
             <input type="checkbox" class="form-check-control" id="technologies{{ $technology->id }}" value="{{ $technology->id }}"  name="technologies[]"
@@ -36,15 +46,15 @@
         </div>
         <div class="mb-3">
             <label for="framework_used" class="form-label">Frameword utilizzati</label>
-            <input type="text" class="form-control" id="framework_used" name="framework_used">
+            <input type="text" class="form-control" id="framework_used" name="framework_used" value="{{ old('framework_used') }}">
         </div>
         <div class="mb-3">
             <label for="status" class="form-check-label">Status</label>
-            <input type="checkbox" name="status" id="status" class="form-check-inline">
+            <input type="checkbox" name="status" id="status" class="form-check-inline" value="{{ old('status') }}">
         </div>
         <div class="mb-3">
             <label for="repository_url" class="form-label">Url Repository</label>
-            <input type="text" class="form-control" id="repository_url" name="repository_url">
+            <input type="text" class="form-control" id="repository_url" name="repository_url" value="{{ old('repository_url') }}">
         </div>
         
         <button type="submit" class="btn btn-primary">Invia</button>
