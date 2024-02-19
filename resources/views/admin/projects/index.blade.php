@@ -20,7 +20,6 @@
             <th scope="col">Framework</th>
             <th scope="col">Status</th>
             <th scope="col">Repository</th>
-            <th scope="col">Descrizione</th>
             <th scope="col"> </th>
           </tr>
         </thead>
@@ -37,8 +36,7 @@
             </td>
             <td>{{ $project->framework_used }}</td>
             <td>{{ $project->status ? 'Completato' : 'In corso' }}</td>
-            <td>{{ $project->repository_url }}</td>
-            <td>{{ $project->description }}</td>
+            <td><a href="{{ $project->repository_url }}">{{ $project->repository_url }}</a></td>
             <td>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $project->id }}">
