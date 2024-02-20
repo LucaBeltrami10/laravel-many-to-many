@@ -44,22 +44,13 @@ class TechnologyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Technology $technology, ProjectTechnology $projectTechnology)
+    public function show(Technology $technology)
     {
 
-        $technologyName = $technology->technology_name;
+        /*  $projects = $technology->projects()->get(); */
+        $projects = $technology->projects;
 
-        $projectsTechnologiesInfo = ProjectTechnology::where('technology_id', $technology->id)->get();
-        $projectsId = [];
-
-        foreach ($projectsTechnologiesInfo as $projectId) {
-            array_push($projectsId, $projectId->project_id);
-        };
-
-        $projects = Project::whereIn('id', $projectsId)->get();
-
-
-        return view('admin.technologies.show', compact('projects', 'technologyName'));
+        return view('admin.technologies.show', compact('projects'));
     }
 
     /**
